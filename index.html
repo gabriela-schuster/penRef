@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pentesting Ref</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"> 
+</head>
+<body>
+  <div class="heading">
+    <h1>Pentesting <br> tools/utilities</h1>
+  </div>
+
+  <main>
+    <h2>┌───┴───┐</h2>
+    <h2>│ Linux   │</h2>
+    <h2>└───────┘</h2>
+
+    <ul class="container">
+      <p>┌───────┐</p>
+      │<h3> Users</h3> │
+      <p>├───────┘</p>
+      <p>│</p>
+      <li>
+        ├ <span class="cmd">adduser</span> <span class="param">user</span>
+        <span class="exp"> : adds user, will ask for password, adress, etc. </span>
+        <br>│ <span class="exp">and will set default directory, shell automatically</span>
+      </li>
+      
+      <p>├────────────────────────────────────────────────────────────────</p>
+
+      <li>
+        ├ <span class="cmd">deluser</span> <span class="param">user</span><span class="exp"> : will delete specified user</span>
+      </li>
+      
+      <p>├────────────────────────────────────────────────────────────────</p>
+
+      <li>
+        ├ <span class="cmd">useradd</span><span class="exp"> : adds a user, but you have to specify things</span>
+        <br>│<span class="ident"><span class="opt">-d</span><span class="exp"> : specifies the directory in wich the user will be created</span></span>
+        <br>│<span class="ident"><span class="opt">-s</span><span class="exp"> : specifies the shell</span></span>
+        <br>│<code>useradd -d /opt/admin -s /bin/bash</code>
+      </li>
+      
+      <p>├────────────────────────────────────────────────────────────────</p>
+
+      <li>
+        ├ <span class="cmd">su</span> <span class="param">user</span><span class="exp"> : login as <span class="param">user</span></span>
+      </li>
+
+      <p>├────────────────────────────────────────────────────────────────</p>
+
+      <li>
+        ├ <span class="cmd">adduser/deluser</span> <span class="param">user</span> <span class="exp">: add/delete <span class="param">user</span> from sudo group</span>
+      </li>
+
+      <p>│</p>
+      <p>│</p>
+      <p>│┌─────────┐</p>
+      ├┤<h3>Network</h3> │
+      <p>│└─────────┘</p>
+      <p>│</p>
+
+      <li>
+        ├ <span class="cmd">ifconfig</span> <span class="exp">: shows informations like ip, netmasl, broadcast...</span>
+        <br>│<span class="ident">
+          <span class="param">network</span>
+          <span class="param">ip</span>
+          <span class="exp">: changes the ip of the <span class="param">network</span></span>
+        </span>
+        <br>│<code>ifconfig eth0 10.0.0.1 netmask 10.0.0.1</code>
+      </li>
+
+      <p>├────────────────────────────────────────────────────────────────</p>
+
+      <li>
+        ├ <span class="cmd">/etc/network/interfaces</span> <span class="exp">: configuration file, edit to config</span>
+        <br>│<span class="ident"><span class="exp">get an automatic ip :</span></span>
+        <br>│<code class="etc">auto <span class="param">interface</span></code>
+        <br>│<code class="etc">iface <span class="param">interface</span> inet dhcp</code>
+        <br>│<span class="ident"><span class="exp">get an static ip :</span></span>
+        <br>│<code class="etc">auto <span class="param">interface</span></code>
+        <br>│<code class="etc">iface eth0 net static</code>
+        <br>│<code class="etc">adress <span class="param">ip</span></code>
+        <br>│<code class="etc">netmask/broadcast <span class="param">ip</span></code>
+      </li>
+
+      <p>├────────────────────────────────────────────────────────────────</p>
+      
+      <li>
+        ├ <span class="cmd">service networking restart</span> <span class="exp">: restart network service</span>
+      </li>
+      
+      <p>├────────────────────────────────────────────────────────────────</p>
+      
+      <li>
+        ├ <span class="cmd">/etc/init.d/networking restart</span> <span class="exp">: restart network</span>
+      </li>
+      
+      <p>├────────────────────────────────────────────────────────────────</p>
+
+      <li>
+        ├ <span class="cmd">route</span> <span class="exp">: show rotes</span>
+        <br>│ <span class="ident"><span class="opt">-n</span> <span class="exp">: show gateway ip</span></span>
+        <br>│ <span class="ident">
+          <span class="opt">del</span>/<span class="opt">add</span>
+          <span class="param">route</span>
+          <span class="exp">: del/add route</span>
+        </span>
+      </li>
+
+      <p>├────────────────────────────────────────────────────────────────</p>
+
+      <li>
+        ├ <span class="cmd">netsat</span> <span class="exp">: show ports</span>
+        <br>│ <span class="ident">
+          <span class="opt">-lt</span> <span class="exp">: listen tcp ports</span>
+        </span>
+      </li>
+
+      </ul>
+  </main>
+</body>
+</html>
