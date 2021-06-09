@@ -118,7 +118,85 @@
         <br>│ <span class="ident">
           <span class="opt">-lt</span> <span class="exp">: listen tcp ports</span>
         </span>
+        <br>│ <span class="ident">
+          <span class="opt">-lu</span> <span class="exp">: listen ftp ports</span>
+        <br>│ <span class="ident">
+          <span class="opt">-ln</span> <span class="exp">: show port number instead of the name</span>
+        </span>
+        <br>│ <span class="ident">
+          <span class="opt">-lp</span> <span class="exp">: show port PID</span>
+        </span>
       </li>
+
+      <p>│</p>
+      <p>│</p>
+      <p>│ ┌──────────┐</p>
+      ├─┤<h3>Services</h3> │
+      <p>│ └──────────┘</p>
+      <p>│</p>
+      
+      <li>
+        ├ <span class="cmd">service</span> <span class="param">service</span> <span class="opt">start/stop/restart</span>
+        <span class="exp">: starts, stops or restarts a service</span>
+        <br>│ <code>service ssh start</code>
+      </li>
+
+      <p>├────────────────────────────────────────────────────────────────</p>
+
+      <li>
+        ├ <span class="cmd">update-rc.d</span> <span class="param">service</span> <span class="opt">enable/disable</span>
+        <span class="exp">: enable/disable service to start on boot</span>
+      </li>
+
+      <p>│</p>
+      <p>│</p>
+      <p>│ <span class="spacer">a</span>┌──────────┐</p>
+      ├──┤<h3>Archives</h3> │
+      <p>│ <span class="spacer">a</span>└──────────┘</p>
+      <p>│</p>
+
+      <li>
+        ├ <span class="cmd">locate</span> <span class="param">nameOfArchive</span>
+        <span class="exp">: search an file in the system </span>
+        <br>│ <span class="exp">if a file is created after boot, update db</span>
+        <br>│ <code>updatedb | locate access.log</code>
+      </li>
+
+      <p>├────────────────────────────────────────────────────────────────</p>
+
+      <li>
+        ├ <span class="cmd">whereis</span> <span class="param">nameOfArchive</span>
+        <span class="exp">: search an file in the system </span>
+      </li>
+
+      <p>├────────────────────────────────────────────────────────────────</p>
+
+      <li>
+        ├ <span class="cmd">find</span> <span class="param">directory</span> <span class="opt">-name</span> <span class="param">nameOfArchive</span>
+        <span class="exp">: search <span class="param">nameOfArchive</span> in <span class="param">directory</span></span>
+      </li>
+
+      <p>├────────────────────────────────────────────────────────────────</p>
+
+      <li>
+        ├ <span class="cmd">which</span> <span class="param">nameOfBinary</span>
+        <span class="exp">: search a binary in the system </span>
+      </li>
+
+      <p>├────────────────────────────────────────────────────────────────</p>
+
+      <li>
+        ├ <span class="cmd">tail/head</span> <span class="param">file</span>
+        <span class="exp">: returns the last/first 10 lines of an archive </span>
+        <br>│ <span class="ident">
+          <span class="opt">-f</span> <span class="exp">: watch in real time</span>
+        </span>
+        <br>│ <span class="ident">
+          <span class="opt">-n</span> <span class="param">num</span>
+           <span class="exp">: display <span class="param">num</span> lines instead of 10</span>
+        </span>
+      </li>
+      
 
       </ul>
   </main>

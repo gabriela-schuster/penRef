@@ -12,6 +12,7 @@ body {
   background-color: #1b1b1b;
   color: var(--dark);
   font-family: 'Space Mono', monospace;
+  letter-spacing: 1.5px;
 }
 main {
   display: flex;
@@ -41,7 +42,14 @@ h3 {
   display: inline-block;
   color: var(--blue);
 }
+p:not(.line) {
+  word-break: break-all;
+}
 
+.spacer {
+  display: inline-block;
+  visibility: hidden;
+}
 ::selection {
   background-color: var(--blue);
   color: #1b1b1b;
