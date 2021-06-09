@@ -180,7 +180,7 @@
 
       <li>
         ├ <span class="cmd">which</span> <span class="param">nameOfBinary</span>
-        <span class="exp">: search a binary in the system </span>
+        <span class="exp">: searchs a binary in the system </span>
       </li>
 
       <p>├────────────────────────────────────────────────────────────────</p>
@@ -197,8 +197,82 @@
         </span>
       </li>
       
+      <p>├────────────────────────────────────────────────────────────────</p>
 
-      </ul>
+      <li>
+        ├ <span class="cmd">grep</span> <span class="param">something</span>
+        <span class="exp">: searchs someting </span>
+        <br>│ <code>cat /etc/passwd | grep '/bin/bash'</code>
+        <br>│ <code>grep 'bin/bash /etc/passwd</code>
+        <br>│ <span class="ident">
+          <span class="opt">></span>
+           <span class="exp">: creates an file with the output</span>
+        </span>
+        <br>│ <code>grep 'bin/bash' /etc/passwd > temBash.txt</code>
+        <br>│ <span class="ident">
+          <span class="opt">-v</span>
+          <span class="exp">: searchs all that don't match</span>
+        </span>
+        <br>│ <code>grep -v 'bin/bash' /etc/passwd</code>
+        <br>│ <span class="ident">
+          <span class="cmd">egrep</span>
+          <span class="exp">: instead of grep to search more params</span>
+        </span>
+        <br>│ <code>egrep 'nologin|false' /etc/passwd</code>
+      </li>
+      
+      <p>├────────────────────────────────────────────────────────────────</p>
+
+      <li>
+        ├ <span class="cmd">cut</span> <span class="opt">-d</span> <span class="param">delimiter</span> <span class="opt">-f</span><span class="param">num</span> <span class="param">file</span>
+        <span class="exp">: cuts the <span class="param">file</span> by <span class="param">delimiter</span>, </span>
+        <br>│ <span class="exp">and return the <span class="param">num</span> column </span>
+        <br>│ <code>cut -d : -f1 /etc/passwd</code>
+        <br>│ <span class="ident">
+          <span class="opt">-f</span> <spam class="param">column 1</spam><span class="exp">,</span><spam class="param">column 1</spam>
+          <span class="exp">: return more than one column</span>
+        </span>
+        <br>│ <code>cut -d : -f1 /etc/passwd</code>
+      </li>
+
+      <p>├────────────────────────────────────────────────────────────────</p>
+
+      <li>
+        ├ <span class="cmd">sed 's/<span class="param">toBeReplaced</span>/<span class="param">toReplace</span></span>' <span class="param">file</span>
+        <span class="exp">: replaces <span class="param">toBeReplaced</span></span>
+        <br>│ <span class="exp">with <span class="param">toReplace</span></span>
+        <span class="exp"></span>
+        <br>│ <span class="ident">
+          <span class="opt">></span>
+           <span class="exp">: creates an file with the output</span>
+        </span>
+        <br>│ <code>sed 's/bash/fish' /etc/passwd > /etc/passwd</code>
+      </li>
+
+      <p>├────────────────────────────────────────────────────────────────</p>
+
+      <li>
+        ├ <span class="cmd">uniq</span> <span class="exp">: use it with cut or grep, it get's the output</span>
+        <br>│ <span class="exp">and sorts by a flag</span>
+        <br>│ <span class="ident">
+          <span class="opt">-c</span> <span class="exp">: counts the output</span>
+        </span>
+        <br>│ <code>cat /etc/passwd | grep '/bin/bash' | uniq -c</code>
+      </li>
+
+      <p>├────────────────────────────────────────────────────────────────</p>
+
+      <li>
+        ├ <span class="cmd">sort</span> <span class="exp">: sorts by a specific flag</span>
+        <br>│ <span class="ident">
+          <span class="opt">-n</span> <span class="exp">: sorts by number</span>
+        </span>
+      </li>
+
+
+    </ul>
+
+    <p style="margin-top: 3rem;">Creators: https://github.com/gabriela-tomazzi & https://github.com/gabriel-andreiw</p>
   </main>
 </body>
 </html>
