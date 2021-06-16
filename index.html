@@ -88,6 +88,24 @@
       </li>
 
       <p>├────────────────────────────────────────────────────────────────</p>
+
+      <li>
+        ├ <span class="cmd">macchanger</span> <span class="exp">: changes mac address</span>
+        <br>│ <span class="ident">
+          <span class="opt">-r</span> <span class="param">interface</span> 
+          <span class="exp">: changes <span class="param">interface</span> MAC to a random one</span>
+        </span>
+        <br>│ <span class="ident">
+          <span class="opt">-m</span> <span class="param">MAC</span> <span class="param">interface</span>
+          <span class="exp">: changes <span class="param">interface</span> MAC to <span class="param">mac</span></span>
+        </span>
+        <br>│ <span class="ident">
+          <span class="opt">-p</span> <span class="param">interface</span>
+          <span class="exp">: resets <span class="param">interface</span> MAC to original</span>
+        </span>
+      </li>
+
+      <p>├────────────────────────────────────────────────────────────────</p>
       
       <li>
         ├ <span class="cmd">service networking restart</span> <span class="exp">: restart network service</span>
@@ -102,7 +120,7 @@
       <p>├────────────────────────────────────────────────────────────────</p>
 
       <li>
-        ├ <span class="cmd">route</span> <span class="exp">: show rotes</span>
+        ├ <span class="cmd">route</span> <span class="exp">: show routes</span>
         <br>│ <span class="ident"><span class="opt">-n</span> <span class="exp">: show gateway ip</span></span>
         <br>│ <span class="ident">
           <span class="opt">del</span>/<span class="opt">add</span>
@@ -192,8 +210,8 @@
           <span class="opt">-f</span> <span class="exp">: watch in real time</span>
         </span>
         <br>│ <span class="ident">
-          <span class="opt">-n</span> <span class="param">num</span>
-           <span class="exp">: display <span class="param">num</span> lines instead of 10</span>
+          <span class="opt">-n</span> <span class="param">int</span>
+           <span class="exp">: display <span class="param">int</span> lines instead of 10</span>
         </span>
       </li>
       
@@ -275,6 +293,29 @@
         </span>
       </li>
 
+      <p>│</p>
+      <p>│</p>
+      <p>│ <span class="spacer">aa</span>┌─────────┐</p>
+      ├───┤<h3>Traffic</h3> │
+      <p>│ <span class="spacer">aa</span>└─────────┘</p>
+      <p>│</p>
+
+      <p>├────────────────────────────────────────────────────────────────</p>
+
+      <li>
+        ├ <span class="cmd">ping</span> <span class="param">ip</span>
+        <span class="exp">: sends package to <span class="param">ip</span> </span>
+        <br>│ <span class="ident">
+          <span class="opt">-c</span> <span class="param">int</span>
+          <span class="exp">: sends package <span class="param">int</span> times</span>
+        </span>
+        <br>│ <span class="ident">
+          <span class="opt">-t</span> <span class="param">int</span>
+          <span class="exp">: Time To Live (TTL)</span>
+        </span>
+      </li>
+
+      <p>├────────────────────────────────────────────────────────────────</p>
 
     </ul>
 
