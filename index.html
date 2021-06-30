@@ -134,15 +134,17 @@
       <li>
         ├ <span class="cmd">netsat</span> <span class="exp">: show ports</span>
         <br>│ <span class="ident">
-          <span class="opt">-lt</span> <span class="exp">: listen tcp ports</span>
+          <span class="opt">-l</span> <span class="exp">: listen ports</span>
+        <br>│ <span class="ident">
+          <span class="opt">-t</span> <span class="exp">: tcp ports</span>
         </span>
         <br>│ <span class="ident">
-          <span class="opt">-lu</span> <span class="exp">: listen ftp ports</span>
+          <span class="opt">-u</span> <span class="exp">: ftp ports</span>
         <br>│ <span class="ident">
-          <span class="opt">-ln</span> <span class="exp">: show port number instead of the name</span>
+          <span class="opt">-n</span> <span class="exp">: show port number instead of the name</span>
         </span>
         <br>│ <span class="ident">
-          <span class="opt">-lp</span> <span class="exp">: show port PID</span>
+          <span class="opt">-p</span> <span class="exp">: show port PID</span>
         </span>
       </li>
 
@@ -317,9 +319,110 @@
 
       <p>├────────────────────────────────────────────────────────────────</p>
 
+      <li>
+        ├ <span class="cmd">tcpdump</span>
+        <span class="exp">: traffic analyzer </span>
+        <br>│ <span class="ident">
+          <span class="opt">-i</span> <span class="param">interface</span>
+          <span class="exp">: specifies interface</span>
+        </span>
+        <br>│ <span class="ident">
+          <span class="opt">-v</span>
+          <span class="exp">: verbose</span>
+        </span>
+        <br>│ <span class="ident">
+          <span class="opt">-w</span> <span class="param">file</span>
+          <span class="exp">: write to <span class="param">file</span> </span>
+        </span>
+        <br>│ <span class="ident">
+          <span class="opt">-r</span> <span class="param">file</span>
+          <span class="exp">: reads <span class="param">file</span> </span>
+        </span>
+        <br>│ <span class="ident">
+          <span class="opt">tcp/icmp/...</span>
+          <span class="exp">: specifies a protocol</span>
+        </span>
+        <br>│ <code> tcpdump -vi eth0 icmp -w icmp.pcap</code>
+        <br>│ <span class="ident">
+          <span class="opt">-n </span>
+          <span class="exp">: shows ip</span>
+        </span>
+        <br>│ <span class="ident">
+          <span class="opt">-e </span>
+          <span class="exp">: shows ethernet protocol</span>
+        </span>
+        <br>│ <span class="ident">
+          <span class="opt">-A </span>
+          <span class="exp">: ascii</span>
+        </span>
+        <br>│ <span class="ident">
+          <span class="opt">-X </span>
+          <span class="exp">: hexadecimal</span>
+        </span>
+        <br>│<code class="etc">can use: 
+          host <span class="param">ip</span> /
+          src host <span class="param">ip</span> /
+          dst host <span class="param">ip</span> /
+          port <span class="param">port</span>
+        </code>
+      </li>
+
+      <p>├────────────────────────────────────────────────────────────────</p>
+
+      <li>
+        ├ <span class="cmd">host</span> <span class="param">dns</span>
+        <span class="exp">: shows ip of <span class="param">dns</span> </span>
+      </li>
+
+      <p>├────────────────────────────────────────────────────────────────</p>
+
+      <li>
+        ├ <span class="cmd">nc</span> <span class="param">url</span> <span class="param">port</span>
+        <span class="exp">: connects with <span class="param">ip</span> in <span class="param">port</span> </span>
+        <br>│<code class="etc">see default service ports in /etc/services</code>
+        <br>│<code class="etc">everything the host do will log, even the ip</code>
+        <br>│ <span class="ident">
+          <span class="opt">-v </span>
+          <span class="exp">: verbose</span>
+        </span>
+        <br>│ <span class="ident">
+          <span class="opt">-l </span>
+          <span class="exp">: listen</span>
+        </span>
+        <br>│ <span class="ident">
+          <span class="opt">-p </span> <span class="param">port</span>
+          <span class="exp">: port <span class="param">port</span></span>
+        </span>
+        <br>│ <span class="ident">
+          <span class="opt">-n 
+          <span class="exp">: shows ip</span>
+        </span>
+        <br>│ <span class="ident">
+          <span class="opt">-u 
+          <span class="exp">: shows udp ports, the default id tcp</span>
+        </span>
+        <br>│ <span class="ident">
+          <span class="opt">-< <span class="param">file</span>
+          <span class="exp">: sends <span class="param">file</span> on connection </span>
+        </span>
+        <br>│ <span class="ident">
+          <span class="opt">-z <span class="param">host</span> <span class="param">port</span>
+          <span class="exp">: scan to see if occupied </span>
+        </span>
+        <br>│<code class="etc">when using with -n, doesn't accept dns, only ip</code>
+        <br>│ <span class="ident">
+          <span class="opt">-e <span class="param">file/bin</span>
+          <span class="exp">: executes <span class="param">file/bin</span> on connection, can bind/reverse shells </span>
+        </span>
+        <br>│<code class="etc">nc -vnlp 5050 -e /bin/bash</code>
+      </li>
+
+      <p>├────────────────────────────────────────────────────────────────</p>
+
+
     </ul>
 
-    <p style="margin-top: 3rem;">Creators: https://github.com/gabriela-tomazzi & https://github.com/gabriel-andreiw</p>
+    <p style="margin-top: 3rem;">Creator: https://github.com/gabriela-tomazzi </p>
   </main>
 </body>
 </html>
