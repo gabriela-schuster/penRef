@@ -3,13 +3,17 @@
   padding: 0;
 }
 html {
-  --blue: #86baba;
+  /* --blue: #86baba;
   --brown600: #b59f8b;
   --brown400: #d8cfbd;
-  --dark: #7f7f84;
+  --dark: #7f7f84; */
+  --blue: #87a4a0;
+  --brown600: #d7cdba;
+  --brown400: #ffd089;
+  --dark: #7a6a71;
 }
 body {
-  background-color: #1b1b1b;
+  background-color: #161317;
   color: var(--dark);
   font-family: 'Space Mono', monospace;
   letter-spacing: 1.5px;

