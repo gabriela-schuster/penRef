@@ -303,8 +303,6 @@
       <p>│ <span class="spacer">aa</span>└─────────┘</p>
       <p>│</p>
 
-      <p>├────────────────────────────────────────────────────────────────</p>
-
       <li>
         ├ <span class="cmd">ping</span> <span class="param">ip</span>
         <span class="exp">: sends package to <span class="param">ip</span> </span>
@@ -467,8 +465,6 @@
       <p>│ <span class="spacer">aaa</span>└──────────────────┘</p>
       <p>│</p>
 
-      <p>├────────────────────────────────────────────────────────────────</p>
-
       <li>
         ├ <span class="cmd">urlcrazy</span> <span class="param">url</span>
         <span class="exp">: similar disponible urls </span>
@@ -588,8 +584,20 @@
 					<span class="exp">: verbose</span>
 				</span>
 				<br> │ <span class="ident">
+					<span class="opt">-n</span>
+					<span class="exp">: show ip, don't resolve</span>
+				</span>
+				<br> │ <span class="ident">
 					<span class="opt">-O</span>
 					<span class="exp">: identifies OS</span>
+				</span>
+				<br> │ <span class="ident">
+					<span class="opt">-F</span>
+					<span class="exp">: fast scan, 100 most common ports</span>
+				</span>
+				<br> │ <span class="ident">
+					<span class="opt">-sn</span>
+					<span class="exp">: ping scan</span>
 				</span>
 				<br> │ <span class="ident">
 					<span class="opt">-sV</span>
@@ -609,7 +617,7 @@
 				</span>
 				<br> │ <span class="ident">
 					<span class="opt">-p <span class="param">port</span></span>
-					<span class="exp">: specifies port</span>
+					<span class="exp">: specifies port, a '-' scans all</span>
 				</span>
 				<br> │ <span class="ident">
 					<span class="opt">-D <span class="param">ip</span></span>
@@ -621,9 +629,59 @@
 					<span class="exp">: specifies script to use</span>
 					<br> │ <code>nmap --script vuln 192.168.0.110</code>
 				</span>
+				<br> │ <span class="ident">
+					<span class="opt">-oN <span class="param">file</span></span>
+					<span class="exp">: writes to <span class="param">file</span></span>
+				</span>
+				<br> │ <span class="ident">
+					<span class="opt">-oX <span class="param">file</span></span>
+					<span class="exp">: writes to <span class="param">file</span> in xml format</span>
+				</span>
+			</li>
+
+			<p>│</p>
+      <p>│</p>
+      <p>│ <span class="spacer">aaaa</span>┌──────────┐</p>
+      ├─────┤<h3>Cracking</h3> │
+      <p>│ <span class="spacer">aaaa</span>└──────────┘</p>
+      <p>│</p>
+
+			<li>
+				├ <span class="cmd">hydra</span> <span class="exp">: password cracker</span>
+				<br> │ <span class="ident">
+					<span class="opt">-l <span class="param">user</span></span>
+					<span class="exp">: user to try login on</span>
+				</span>
+				<br> │ <span class="ident">
+					<span class="opt">-L <span class="param">wordlist</span></span>
+					<span class="exp">: wordlist of users to try login on</span>
+				</span>
+				<br> │ <span class="ident">
+					<span class="opt">-P <span class="param">wordlist</span></span>
+					<span class="exp">: specifies wordlist to brute-force as password</span>
+				</span>
 			</li>
 
 			<p>├────────────────────────────────────────────────────────────────</p>
+
+			<li>
+				├ <span class="cmd">hashcat</span> <span class="exp">: hashed password cracker</span>
+				<br> │ <span class="ident">
+					<span class="opt">-a <span class="param">int</span></span>
+					<span class="exp">: type of attack, [0-straight, 1-combination, 3-brute force, </span>
+					<br>│ <span class="exp"> <span class="spacer">aaaaaaaaa</span>6-hybrid wordlist + mask, 7-hybrid mask + wordlist]</span>
+				</span>
+				<br> │ <span class="ident">
+					<span class="opt">-m <span class="param">type</span></span>
+					<span class="exp">: type of hash, see the hascat man to see all</span>
+				</span>
+				<br> │ <span class="ident">
+					<span class="opt">-o <span class="param">filename</span></span>
+					<span class="exp">: specifies filename ti write output in</span>
+				</span>
+				<br> │ <code>hashcat -a 0 -m 1000 - o cracked.txt "HASHEDPASSHERE" wordlist.txt</code>
+				<br> │ <code>hashcat -a 0 -m 1800 - o cracked.txt hashes.txt wordlist.txt</code>
+			</li>
 
     </ul>
 
