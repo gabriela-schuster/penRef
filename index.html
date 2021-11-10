@@ -305,7 +305,7 @@
 
       <li>
         ├ <span class="cmd">ping</span> <span class="param">ip</span>
-        <span class="exp">: sends package to <span class="param">ip</span> </span>
+        <span class="exp">: sends ICMP package to <span class="param">ip</span> </span>
         <br>│ <span class="ident">
           <span class="opt">-c</span> <span class="param">int</span>
           <span class="exp">: sends package <span class="param">int</span> times</span>
@@ -314,6 +314,26 @@
           <span class="opt">-t</span> <span class="param">int</span>
           <span class="exp">: Time To Live (TTL)</span>
         </span>
+      </li>
+
+      <p>├────────────────────────────────────────────────────────────────</p>
+
+			<li>
+        ├ <span class="cmd">fping</span> <span class="param">ip</span>
+        <span class="exp">: sends IMCP package to <span class="param">ip</span> </span>
+        <br>│ <span class="ident">
+          <span class="opt">-c</span> <span class="param">int</span>
+          <span class="exp">: sends package <span class="param">int</span> times</span>
+        </span>
+        <br>│ <span class="ident">
+          <span class="opt">-g</span> <span class="param">range</span>
+          <span class="exp">: range of ips to scan</span>
+        </span>
+        <br>│ <span class="ident">
+          <span class="opt">-a</span>
+          <span class="exp">: shows only online hosts</span>
+        </span>
+				<br>│ <code> fping -g 192.168.0.1/24 -a</code>
       </li>
 
       <p>├────────────────────────────────────────────────────────────────</p>
