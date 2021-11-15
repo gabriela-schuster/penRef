@@ -3,17 +3,13 @@
   padding: 0;
 }
 html {
-  /* --blue: #86baba;
-  --brown600: #b59f8b;
-  --brown400: #d8cfbd;
-  --dark: #7f7f84; */
   --blue: #87a4a0;
   --brown600: #d7cdba;
   --brown400: #ffd089;
-  --dark: #7a6a71;
+  --dark: #504c5e;
 }
 body {
-  background-color: #161317;
+  background-color: #131216;
   color: var(--dark);
   font-family: 'Space Mono', monospace;
   letter-spacing: 1.5px;
@@ -48,6 +44,12 @@ h3 {
 }
 p:not(.line) {
   word-break: break-all;
+}
+a {
+	color: var(--blue);
+}
+a:visited {
+	color: var(--brown400);
 }
 
 .spacer {

