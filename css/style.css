@@ -12,6 +12,7 @@ body {
   background-color: #131216;
   color: var(--dark);
   font-family: 'Space Mono', monospace;
+  font-weight: 600;
   letter-spacing: 1.5px;
 }
 main {

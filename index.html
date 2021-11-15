@@ -22,9 +22,9 @@
 		
     <ul class="container">
 			<p>────────────────────────────────────────────────────────────────</p>
-			<span>├</span><a href="examples.html">Blog</a>
+			<span>├ </span><a href="examples.html">Blog</a>
 			<p>────────────────────────────────────────────────────────────────</p>
-
+			<br>
       <p>┌───────┐</p>
       │<h3> Users</h3> │
       <p>├───────┘</p>
@@ -171,7 +171,8 @@
 
       <li>
         ├ <span class="cmd">update-rc.d</span> <span class="param">service</span> <span class="opt">enable/disable</span>
-        <span class="exp">: enable/disable service to start on boot</span>
+        <span class="exp">: enable/disable service</span>
+				<br> │ <span class="exp">to start on boot</span>
       </li>
 
       <p>│</p>
@@ -448,7 +449,7 @@
         <br>│<code class="etc">when using with -n, doesn't accept dns, only ip</code>
         <br>│ <span class="ident">
           <span class="opt">-e <span class="param">file/bin</span>
-          <span class="exp">: executes <span class="param">file/bin</span> on connection, can bind/reverse shells </span>
+          <span class="exp">: executes <span class="param">file/bin</span> on connection </span>
         </span>
         <br>│<code>nc -vnlp 5050 -e /bin/bash</code>
       </li>
@@ -458,7 +459,8 @@
       <li>
         ├ <span class="cmd">ncat</span>
         <span class="exp">: exactly line nc, but supports encryption </span>
-        <br>│<code class="etc">generate ssl: $ openssl req -x 509 --newkey rsa 2048 -keyout chave.pem -out cert.pem -days 10</code>
+        <br>│<code class="etc">generate ssl: </code>
+				<br>│<code>openssl req -x 509 --newkey rsa 2048-keyout chave.pem -out cert.pem -days 10</code>
         <br>│<code>ncat -vnlp 443 --ssl-key <span class="param">name</span>.pem --ssl-cert <span class="param">cert</span>.pem </code>
       </li>
 
@@ -532,7 +534,7 @@
         <span class="exp">: cli browser </span>
         <br>│ <span class="ident">
           <span class="opt">--dump </span>
-          <span class="exp">: only outputh the html, no interantion, cool for making scripts</span>
+          <span class="exp">: only outputh the html, no interantion, for making scripts</span>
         </span>
       </li>
 
@@ -663,6 +665,10 @@
 					<span class="exp">: verbose</span>
 				</span>
 				<br> │ <span class="ident">
+					<span class="opt">-T <span class="param">level</span></span>
+					<span class="exp">: specifies agressivity</span>
+				</span>
+				<br> │ <span class="ident">
 					<span class="opt">-n</span>
 					<span class="exp">: show ip, don't resolve</span>
 				</span>
@@ -695,8 +701,16 @@
 					<span class="exp">: stealthy scan, (SYN scan)</span>
 				</span>
 				<br> │ <span class="ident">
+					<span class="opt">-sU</span>
+					<span class="exp">: UDP scan</span>
+				</span>
+				<br> │ <span class="ident">
 					<span class="opt">-p <span class="param">port</span></span>
 					<span class="exp">: specifies port, a '-' scans all</span>
+				</span>
+				<br> │ <span class="ident">
+					<span class="opt">-g <span class="param">dst_port</span></span>
+					<span class="exp">: specifies a destination port</span>
 				</span>
 				<br> │ <span class="ident">
 					<span class="opt">-D <span class="param">ip</span></span>

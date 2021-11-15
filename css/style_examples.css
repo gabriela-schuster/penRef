@@ -14,6 +14,7 @@ body {
 	background-color: #131216;
 	color: var(--dark);
 	font-family: 'Space Mono', monospace;
+	font-weight: 600;
 }
 main {
 	display: flex;
@@ -83,9 +84,8 @@ a:visited {
 */
 
 .box code {
-	
-	/* color: var(--dark); */
-	font-size: 13px !important;
+	color: var(--dark);
+	/* font-size: 13px !important; */
 }
 .box code:not(.inline) {
 	margin: 0.5rem 0;
