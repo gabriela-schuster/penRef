@@ -636,6 +636,45 @@
 			<p>├────────────────────────────────────────────────────────────────</p>
 
 			<li>
+				├ <span class="cmd">dirb</span> <span class="exp">: web dir fuzzer</span>
+				<br> │ <span class="ident">
+					<span class="opt">-t</span>
+					<span class="exp">: doesn't use a '/' in the end</span>
+				</span>
+				<br> │ <span class="ident">
+					<span class="opt">-a <span class="param">user_agent</span></span>
+					<span class="exp">: defines a user-agent</span>
+				</span>
+				<br> │ <span class="ident">
+					<span class="opt">-S </span>
+					<span class="exp">: silent mode</span>
+				</span>
+				<br> │ <span class="ident">
+					<span class="opt">-X <span class="param">ext</span></span>
+					<span class="exp">: specifies extension (.php, .html)</span>
+				</span>
+				<br> │ <span class="ident">
+					<span class="opt">-u <span class="param">user:pass</span></span>
+					<span class="exp">: if needed for HTTP login </span>
+				</span>
+				<br> │ <code class="etc">dirb http://testphp.vulnweb.com/login -u admin:admin</code>
+				<br> │ <span class="ident">
+					<span class="opt">-r</span>
+					<span class="exp">: disables recursion </span>
+				</span>
+				<br> │ <span class="ident">
+					<span class="opt">-R</span>
+					<span class="exp">: interactive recursion, will prompt if you want to</span>
+				<br> │ <span class="ident">
+					<span class="opt">-o <span class="param">file</span></span>
+					<span class="exp">: writes output to <span class="param">file</span></span>
+				</span>
+				<br> │ <code class="etc">dirb http://testphp.vulnweb.com /usr/share/dirb/wordlists/common.txt -a "Chrome"</code>
+			</li>
+
+			<p>├────────────────────────────────────────────────────────────────</p>
+
+			<li>
 				├ <span class="cmd">dnsenum</span> <span class="exp">: multi purpose dns tool</span>
 				<br> │ <span class="ident">
 					<span class="opt">--enum <span class="param">dns</span></span>
@@ -842,6 +881,92 @@
 				</span>
 				<br> │ <code>hashcat -a 0 -m 1000 - o cracked.txt "HASHEDPASSHERE" wordlist.txt</code>
 				<br> │ <code>hashcat -a 0 -m 1800 - o cracked.txt hashes.txt wordlist.txt</code>
+			</li>
+
+			<p>│</p>
+      <p>│</p>
+      <p>│ <span class="spacer">aaaaa</span>┌─────────┐</p>
+      ├──────┤<h3>Defense</h3> │
+      <p>│ <span class="spacer">aaaaa</span>└─────────┘</p>
+      <p>│</p>
+
+			
+			<li>
+				├ <span class="cmd">iptables</span> <span class="exp">: linux firewall</span>
+				<br> │ <span class="ident">
+					<span class="opt">-L</span>
+					<span class="exp">: list rules of a table, default is filter</span>
+				</span>
+				<br> │ <code>iptables -L</code>
+				<br> │ <code>iptables -L -t nat</code>
+				<br> │ <span class="ident">
+					<span class="opt">-t <span class="param">table_type</span></span>
+					<span class="exp">: specifies table type [filter, nat or mangle]</span>
+				</span>
+				<br> │ <span class="ident">
+					<span class="opt">-d <span class="param">ipv4</span></span>
+					<span class="exp">: dst host</span>
+				</span>
+				<br> │ <span class="ident">
+					<span class="opt">-s <span class="param">ipv4</span></span>
+					<span class="exp">: src host</span>
+				</span>
+				<br> │ <span class="ident">
+					<span class="opt">-p <span class="param">protocol</span></span>
+					<span class="exp">: protocol to apply rule [tcp, udp or icmp]</span>
+				</span>
+				<br> │ <span class="ident">
+					<span class="opt">-sport <span class="param">src_port</span></span>
+					<span class="exp">: src port</span>
+				</span>
+				<br> │ <span class="ident">
+					<span class="opt">-dport <span class="param">dst_port</span></span>
+					<span class="exp">: dst port</span>
+				</span>
+				<br> │ <span class="ident">
+					<span class="opt">-o <span class="param">src_interface</span></span>
+					<span class="exp">: src interface</span>
+				</span>
+				<br> │ <span class="ident">
+					<span class="opt">-i <span class="param">dst_interface</span></span>
+					<span class="exp">: dst interface</span>
+				</span>
+				<br> │ <span class="ident">
+					<span class="opt">-s <span class="param">ipv4</span></span>
+					<span class="exp">: src host</span>
+				</span>
+				<br> │ <span class="ident">
+					<span class="opt">!</span>
+					<span class="exp">: negation to the following rule, as not in programming languages</span>
+				</span>
+				<br> │ <span class="ident">
+					<span class="opt">-j <span class="param">action</span></span>
+					<span class="exp">: action to be executed when rule is true</span>
+				</span>
+				<br> │ <code class="etc">ACCEPT: accepts</code>
+				<br> │ <code class="etc">DROP: blocks package, doesn't throw an error</code>
+				<br> │ <code class="etc">REJECT: blocks package, throws an error</code>
+				<br> │ <code class="etc">DNAT: redirects package to a specified ip via --to</code>
+				<br> │ <code class="etc">REDIRECT: redirects package to a specified port via --to</code>
+				<br> │ <code class="etc">MASQUERADE: masks ipv4</code>
+				<br> │ <span class="ident">
+					<span class="opt">-A <span class="param">rule</span></span>
+					<span class="exp">: adds <span class="param">rule</span></span>
+				</span>
+				<br> │ <code>iptables -A OUTPUT -d 192.168.0.103 -j DROP</code>
+				<br> │ <code>iptables -A INPUT -p icmp -s 192.168.0.100 -j REJECT</code>
+				<br> │ <span class="ident">
+					<span class="opt">-D <span class="param">rule</span></span>
+					<span class="exp">: deletes <span class="param">rule</span></span>
+				</span>
+				<br> │ <span class="ident">
+					<span class="opt">-F</span>
+					<span class="exp">: deletes all rules</span>
+				</span>
+				<br> │ <span class="ident">
+					<span class="opt">-P <span class="param">option</span></span>
+					<span class="exp">: modifies behavior of a chain of rules [ACCEPT or DROP]</span>
+				</span>
 			</li>
 
     </ul>
