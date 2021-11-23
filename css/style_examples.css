@@ -35,12 +35,13 @@ h2 {
 	margin: 2rem 0;
 	font-size: 2rem;
 }
-h1, h2, h4 {
-	text-align: center;
-	color: var(--blue);
-}
 h3 {
 	display: inline-block;
+}
+h4 {
+	margin: 2rem 0 1rem;
+}
+h1, h2, h3, h4 {
 	color: var(--blue);
 }
 p {

