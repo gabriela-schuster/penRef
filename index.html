@@ -857,9 +857,27 @@
 					<span class="exp">: wordlist of users to try login on</span>
 				</span>
 				<br> │ <span class="ident">
+					<span class="opt">-p <span class="param">password</span></span>
+					<span class="exp">: password to try login on</span>
+				</span>
+				<br> │ <span class="ident">
 					<span class="opt">-P <span class="param">wordlist</span></span>
 					<span class="exp">: specifies wordlist to brute-force as password</span>
 				</span>
+				<br> │ <span class="ident">
+					<span class="opt">-s <span class="param">port</span></span>
+					<span class="exp">: specifies port</span>
+				</span>
+				<br> │ <span class="ident">
+					<span class="opt">-m <span class="param">param</span></span>
+					<span class="exp">: modules like http-get, http-get-form etc. require params</span>
+				</span>
+				<br>│ <code>hydra -l admin -P passlist.txt http-head://testphp.vulnweb.com -m /basic.php</code>
+				<br>│ <code>hydra -l admin -P passlist.txt http-get-form://testphp.vulnweb.com</code>
+				<br>│ <span class="spacer">aaa</span><code class="etc">-m "/login.php:user=^USER^&password=^PASS^:Couldn't login"</code>
+				<br>│ <code class="etc">OBS: to filter by successfull login message: S=Welcome</code>
+				<br>│ <code>hydra -l admin -P passlist.txt http-post-form://testphp.vulnweb.com</code>
+				<br>│ <span class="spacer">aaa</span><code class="etc">-m "/login.php:user=^USER^&password=^PASS^:Couldn't login"</code>
 			</li>
 
 			<p>├────────────────────────────────────────────────────────────────</p>

