@@ -754,7 +754,7 @@
 				<br> │ <span class="ident">
 					<span class="opt">-D <span class="param">ip</span></span>
 					<span class="exp">: sets <span class="param">ip</span> as decoy, decoy will </span>
-					<br>│ <span class="exp"> <span class="spacer">aaaaaaaaa</span>send the same traffic as you, hardening identification</span>
+					<br>│ <span class="exp"> <span class="spacer">aaaaaaaaaaaaaa</span>send the same traffic as you, hardening identification</span>
 				</span>
 				<br> │ <span class="ident">
 					<span class="opt">--script <span class="param">script</span></span>
@@ -762,10 +762,36 @@
 				</span>
 				<br> │ <code>nmap --script vuln 192.168.0.110</code>
 				<br> │ <span class="ident">
+					<span class="opt">-SC </span>
+					<span class="exp">: use scripts with scan, less noisy alternative to -A</span>
+				</span>
+				<br> │ <span class="ident">
 					<span class="opt">--open</span>
 					<span class="exp">: show only open ports</span>
+					<br> │ <code>nmap -D RND:20 --open -sS -p- 192.168.0.1 -oN portsH</code>
 				</span>
-				<br> │ <code>nmap -D RND:20 --open -sS -p- 192.168.0.1 -oN portsH</code>
+				<br> │ <span class="ident">
+					<span class="opt">--exclude <span class="param">ip</span></span>
+					<span class="exp">: excludes an ip from scan</span>
+				</span>
+				<br> │ <span class="ident">
+					<span class="opt">-iL <span class="param">list</span></span>
+					<span class="exp">: list of hosts to scan</span>
+				</span>
+				<br> │ <span class="ident">
+					<span class="opt">-iR <span class="param">int</span></span>
+					<span class="exp">: number of hosts to attack </span>
+					<br> │<span class="spacer">aaaaaaaaaaaaaaaaa</span><span class="exp">simutaniously with, bypas afirewall</span>
+				</span>
+				<br> │ <span class="ident">
+					<span class="opt">-PN <span class="param">port</span></span>
+					<span class="exp">: don't ping beore sending package, exclude </span>
+					<br> │<span class="spacer">aaaaaaaaaaaaaaaaaa</span><span class="exp">parameter to apply to all, bypass firewall</span>
+				</span>
+				<br> │ <span class="ident">
+					<span class="opt">-PU <span class="param">port</span></span>
+					<span class="exp">: send UDP package, exclude parameter</span>
+					<br> │<span class="spacer">aaaaaaaaaaaaaaaaaa</span><span class="exp">to apply to all, bypass firewall</span>
 				<br> │ <span class="ident">
 					<span class="opt">-oN <span class="param">file</span></span>
 					<span class="exp">: writes to <span class="param">file</span></span>
@@ -823,7 +849,7 @@
 				<br>│ <code>sqlmap -u "store.com/prod.php?prod=844" -D store -T users --columns</code>
 				<br>│ <span class="ident">
           <span class="opt">-C <span class="param">column</span></span>
-          <span class="exp">: specifies xolumn to get info</span>
+          <span class="exp">: specifies column to get info</span>
         </span>
 				<br>│ <span class="ident">
           <span class="opt">--dump</span>

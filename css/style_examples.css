@@ -4,14 +4,14 @@
 	box-sizing: border-box;
 }
 html {
-	--blue: #eb6f92;
-	--brown600: #d7cdba;
-	--brown400: #f6c177;
-	--dark: #504c5e;
-	--darker: #191720;
+	--blue: #5cbfdb;
+	--brown600: #d8cfbd;
+	--brown400: #b59f8b;
+	--dark: #7f7f84;
+	--darker: #18191C;
 }
 body {
-	background-color: #191720;
+	background-color: #0a0a0b;
 	color: var(--dark);
 	font-family: 'Space Mono', monospace;
 	font-weight: 600;
