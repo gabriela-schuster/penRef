@@ -10,6 +10,18 @@
 </head>
 <body>
 	<main>
+
+		<h2>linux security flaws</h2>
+
+		<div class="box">
+			<h3>access shell without pass via grub</h3>
+			<p>on grub's screen, with the Os selected, press "e", and go to the kernel config line: </p>
+			<img src="ex_imgs/grub_shell.png">
+			<p>delete from the word "ro" to the end, as market in the picture, and add "wr init=/bin/bash", after that you will be granted a terminal with limited privileges:</p>
+			<img src="/ex_imgs/grub_shell_granted.jpg">
+			<p>OBS: you can run shell scripts this way</p>
+		</div>
+
 		<h2>injections</h2>
 
 		<div class="box">
@@ -76,8 +88,11 @@
 				<span class="spacer">aaaa</span>&ltinput type="submit"> <br>
 				&lt/form> <br>
 			</code>
-			<p>pressing submit, we send the form to the website, not having any form of special privileges</p>
-			<p>repair how we use se the same form, but on a DIFFERENT website</a>
+			<p>pressing submit, we send the form to the website, not having any form of special privileges, repair how we use se the same form, but on a DIFFERENT website</p>
+			<p>if the params are sent via GET, it gets even more easy:</p>
+			<code class="etc">
+				&ltimg src="/csrf/?user=johndoe&password=test123">
+			</code>
 		</div>
 
 		<div class="box">

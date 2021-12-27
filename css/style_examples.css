@@ -27,6 +27,10 @@ main {
 aside {
 	padding: 15vh;
 }
+img {
+	margin: 1rem 0;
+	max-width: 100%;
+}
 
 h1 {
 	font-size: 3rem;
